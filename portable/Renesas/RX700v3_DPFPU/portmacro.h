@@ -179,6 +179,13 @@
 /* Definition to allow compatibility with existing FreeRTOS Demo using flop.c. */
     #define portTASK_USES_FLOATING_POINT() vPortTaskUsesDPFPU()
 
+    #pragma inline_asm vPortMemoryBarrier
+    static void vPortMemoryBarrier( void )
+    {
+    }
+
+    #define portMEMORY_BARRIER()    vPortMemoryBarrier()
+
     #ifdef __cplusplus
         }
     #endif
